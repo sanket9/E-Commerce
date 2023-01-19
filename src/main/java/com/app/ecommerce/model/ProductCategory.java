@@ -1,18 +1,14 @@
 package com.app.ecommerce.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
+@Entity
 @Data
 @Table(name = "product_category")
+@Accessors(chain = true)
 public class ProductCategory extends BaseModel {
     @Id
     @Column(name = "id")
@@ -24,5 +20,6 @@ public class ProductCategory extends BaseModel {
 
     @JoinColumn(name = "parent_cat", referencedColumnName = "id")
     @OneToOne(cascade = CascadeType.ALL)
+//    @Column(name = "parent_cat", nullable = true)
     private ProductCategory parentCategory;
 }

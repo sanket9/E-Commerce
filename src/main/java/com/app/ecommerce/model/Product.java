@@ -1,17 +1,11 @@
 package com.app.ecommerce.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
 @Data
+@Entity
 @Table(name = "product")
 public class Product {
     @Id
@@ -28,7 +22,7 @@ public class Product {
     @Column(name = "price", nullable = false)
     private Double price;
 
-    @JoinColumn(name = "category", referencedColumnName = "id")
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
     @OneToOne(cascade = CascadeType.ALL)
     private ProductCategory productCategory;
 

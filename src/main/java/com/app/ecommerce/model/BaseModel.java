@@ -28,7 +28,7 @@ public class BaseModel {
     @Column(name = "updated_at", nullable = false, updatable = false)
     private Date updatedAt;
 
-    @Column(name = "isActive", nullable = false, columnDefinition = "boolean default false")
+    @Column(name = "isActive", nullable = false, columnDefinition = "boolean default true")
     private boolean isActive;
 
     @PrePersist
